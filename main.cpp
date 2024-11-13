@@ -3,6 +3,8 @@
 // Github link: https://github.com/winstonjose01/comsc210-lab32-tollbooth 
 
 const int INIT_CARS = 2;
+const int CAR_PAYING = 55;
+const int CAR_LEAVING = 45;
 
 #include "Car.h"            // Include Car class definition
 #include <iostream>
@@ -35,7 +37,7 @@ int main(){
         cout << endl << "Time: " << simulation << " Operation: ";
         random_gen = rand() % 100;
         // Case: A car pays and leaves the front of the queue
-        if (random_gen < 55){
+        if (random_gen < CAR_PAYING){
             cout << "Car paid: ";
             toll.front().print(); // Print the car at the front of the queue
             toll.pop_front();  // Remove the car from the front
