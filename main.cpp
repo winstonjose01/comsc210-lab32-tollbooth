@@ -74,23 +74,23 @@ int main(){
             {
                 if (!lanes[i].empty()){
                     cout << "Lane " << i+1 << " Switched: ";
-                    lanes[i].back().print();
+                    lanes[i].back().print();  // Print the car at the back of the lane
+                    // Generate a random lane index, ensuring it's not the current lane
                     int random_switch;
                     do{
                         random_switch =  rand() % 4;
                     } while (random_switch == i);
 
                     cout << "--> Moved to lane " << random_switch+1 << endl;
-                    lanes[random_switch].push_back(lanes[i].back());
-                    lanes[i].pop_back();
+                    lanes[random_switch].push_back(lanes[i].back());  // Move car to the new lane
+                    lanes[i].pop_back();  // Remove the car from the current lane
                 }else {
                     cout << "Lane " << i + 1 << "is empty, no car to switch." << endl;
                 }
             }
-
-            // Check if the queue is empty and terminate the simulation if so
             
         }
+        // Output the current state of all lanes
         output_queue(lanes);
         time_ctr++; // Increment the simulation time step
         cout << "-------------------------------------------------------------";
